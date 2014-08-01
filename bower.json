@@ -1,0 +1,23 @@
+{
+  "name": "mediaCenter",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jmadden85/mediaCenter",
+  "authors": [
+    "jmadden85 <jmadden85@gmail.com>"
+  ],
+  "description": "Media center with node and angular",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.2.21",
+    "bootstrap": "~3.2.0",
+    "jquery": "~2.1.1"
+  }
+}

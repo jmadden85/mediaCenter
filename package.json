@@ -1,4 +1,8 @@
 {
-    "name": "nw-demo",
-    "main": "index.html"
+  "name": "Media-Center",
+  "main": "index.html",
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-bower": "0.0.6"
+  }
 }
