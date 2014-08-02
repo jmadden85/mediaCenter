@@ -1,6 +1,9 @@
 {
   "name": "Media-Center",
   "main": "index.html",
+  "dependencies": {
+    "express": "3.x"
+  },
   "devDependencies": {
     "gulp": "^3.8.6",
     "gulp-bower": "0.0.6"
