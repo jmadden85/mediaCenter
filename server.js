@@ -6,7 +6,11 @@ var files = {
   getContents: function (path, callback) {
     fs.readdir(path, function (err, files) {
       if (err) throw err;
-      callback(files);
+      //Filter for filtering out unneeded files
+      var filteredFiles = files.filter(function (file) {
+        return file !== '.DS_Store';
+      });
+      callback(filteredFiles);
     });
   },
   //gets directories or files in a directory
