@@ -1,7 +1,7 @@
 'use strict';
 var fs = require('fs');
 
-var files = {
+var fileBrowser = {
   //gets contents of a directory
   getContents: function (path, callback) {
     fs.readdir(path, function (err, files) {
@@ -30,8 +30,8 @@ var files = {
   }
 };
 
-files.getContents('../', function (data) {
-  files.getDirectoriesOrFiles({
+fileBrowser.getContents('../', function (data) {
+  fileBrowser.getDirectoriesOrFiles({
     path: '../',
     files: data,
     type: 'directories'
