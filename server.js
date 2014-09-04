@@ -13,9 +13,11 @@ var getDirectories = function (path, callback) {
       //create a variable for filtering out only directories & one for callback tracking
       var directories = [];
       var time =files.length;
+
       //Loop through files and get stats object
       files.forEach(function(file, index, array) {
-        fs.stat(path + file, function (err, stats){
+
+        fs.stat(path + file, function (err, stats) {
           if (err) {
             console.log(err);
           } else {
@@ -25,9 +27,11 @@ var getDirectories = function (path, callback) {
               //Done iterating, return the data
               callback(directories);
             }
+
           }
         });
-      });
+      });//end files loop
+
     }
   });
 };
