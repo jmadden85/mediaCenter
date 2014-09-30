@@ -1,25 +1,24 @@
 'use strict';
 var fs = require('fs');
 
-<<<<<<< HEAD
 var getDirectories = function (path, callback) {
   //Set a default path
   var path = path || process.cwd;
   //Get directory contents
   fs.readdir(path, function (err, files) {
     if (err) {
-      console.log(err);
+      throw err;
     } else {
       //create a variable for filtering out only directories & one for callback tracking
       var directories = [];
-      var time =files.length;
+      var time = files.length;
 
       //Loop through files and get stats object
-      files.forEach(function(file, index, array) {
+      files.forEach(function (file, index, array) {
 
         fs.stat(path + file, function (err, stats) {
           if (err) {
-            console.log(err);
+            throw err;
           } else {
             //check if it's directory and push to directories array
             stats.isDirectory() ? directories.push(file) : false;
@@ -27,19 +26,20 @@ var getDirectories = function (path, callback) {
               //Done iterating, return the data
               callback(directories);
             }
-
           }
         });
       });//end files loop
-
     }
   });
-=======
+};
+
 var fileBrowser = {
   //gets contents of a directory
   getContents: function (path, callback) {
     fs.readdir(path, function (err, files) {
-      if (err) throw err;
+      if (err) {
+        throw err;
+      }
       //Filter for filtering out unneeded files
       var filteredFiles = files.filter(function (file) {
         return file !== '.DS_Store';
@@ -54,7 +54,9 @@ var fileBrowser = {
     var loops = options.files.length - 1;
     options.files.forEach(function (file, index) {
       fs.stat(options.path + file, function (err, stats) {
-        if (err) throw err;
+        if (err) {
+          throw err;
+        }
         stats.isDirectory() ? directories.push(file) : files.push(file);
         if (loops === index) {
           options.type === 'directories' ? callback(directories) : callback(files);
@@ -62,7 +64,6 @@ var fileBrowser = {
       });
     });
   }
->>>>>>> f724db9fa4d98d23fee732e248401ff8790e510b
 };
 
 fileBrowser.getContents('../', function (data) {
