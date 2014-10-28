@@ -42,7 +42,10 @@ var fileBrowser = {
       }
       //Filter for filtering out unneeded files
       var filteredFiles = files.filter(function (file) {
-        return file !== '.DS_Store';
+        var filter = /^\./;
+        (!filter.test(file))
+        return (!filter.test(file));
+        // return file !== '.DS_Store';
       });
       callback(filteredFiles);
     });
@@ -66,11 +69,11 @@ var fileBrowser = {
   }
 };
 
-fileBrowser.getContents('../', function (data) {
+fileBrowser.getContents('./', function (data) {
   fileBrowser.getDirectoriesOrFiles({
-    path: '../',
+    path: './',
     files: data,
-    type: 'directories'
+    type: 'files'
   }, function (data) {
     console.log(data);
   });
