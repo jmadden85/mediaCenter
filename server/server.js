@@ -1,5 +1,6 @@
 'use strict';
 var fs = require('fs');
+var http = require('http');
 
 var getDirectories = function (path, callback) {
   //Set a default path
